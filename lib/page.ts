@@ -5,7 +5,7 @@ export interface NewablePage<T extends Page> {
 }
 
 export abstract class Page {
-  private url: string;
+  private url = '';
 
   protected setUrl(url: string) {
     this.url = url;

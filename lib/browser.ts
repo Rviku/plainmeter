@@ -1,6 +1,7 @@
 import 'chromedriver';
 import {Builder, By, ThenableWebDriver, WebElementPromise} from 'selenium-webdriver';
 import {WaitCondition} from './';
+import {TestService} from './test-injector';
 
 export class Browser {
   private driver: ThenableWebDriver;
@@ -50,5 +51,12 @@ export class Browser {
 
   public async close(): Promise<void> {
     await this.driver.quit();
+  }
+}
+
+@TestService
+export class ChromeBrowser extends Browser {
+  constructor() {
+    super('chrome');
   }
 }

@@ -8,7 +8,7 @@ describe('renders correctly', () => {
 
   it('does something', async () => {
     const selector = '.header img';
-    const browser = TestInjector.get<ChromeBrowser>(ChromeBrowser);
+    const browser = TestInjector.get(ChromeBrowser);
     const element = browser.findElement(selector);
     const img = new WebElement(element, selector);
     const src = await img.getAttribute('src');

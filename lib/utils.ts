@@ -11,8 +11,7 @@ export function findBy(selector: string) {
         configurable: true,
         enumerable: true,
         get: function() {
-          const promise = (this as any).browser.findElement(selector);
-          return new type(promise, selector);
+          return new type(selector);
         },
     });
   };

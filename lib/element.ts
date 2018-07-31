@@ -1,7 +1,14 @@
 import { WebElementPromise } from 'selenium-webdriver';
+import {TestInjector} from './test-injector';
+import {ChromeBrowser} from './index';
 
 export class WebElement {
-  constructor(protected element: WebElementPromise, public selector: string) { }
+  protected element: WebElementPromise;
+
+  constructor(public selector: string) {
+    const browser = TestInjector.get(ChromeBrowser);
+    this.element = browser.findElement(selector);
+  }
 
   public async click() {
     try {
@@ -33,8 +40,8 @@ export class WebElement {
 }
 
 export class Button extends WebElement {
-  constructor(element: WebElementPromise, selector: string) {
-    super(element, selector);
+  constructor(selector: string) {
+    super(selector);
   }
 
   public async isDisabled() {
@@ -47,8 +54,22 @@ export class Button extends WebElement {
 }
 
 export class TextInput extends WebElement {
-  constructor(element: WebElementPromise, selector: string) {
-    super(element, selector);
+  constructor(selector: string) {
+    super(selector);
+  }
+
+  public type(text: string) {
+    return this.element.sendKeys(text);
+  }
+}
+
+export class Image extends WebElement {
+  constructor(selector: string) {
+    super(selector);
+  }
+
+  public async getSourceUrl(): Promise<string> {
+    return this.getAttribute('src');
   }
 
   public type(text: string) {

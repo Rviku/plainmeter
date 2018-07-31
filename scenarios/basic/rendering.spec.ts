@@ -1,5 +1,5 @@
 import {TestSetup} from '../../lib/test-setup';
-import {Image} from '../../lib';
+import {Image} from '../../lib/element';
 
 describe('Loads Page', () => {
   beforeAll(TestSetup.init);

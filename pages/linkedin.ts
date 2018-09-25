@@ -3,14 +3,13 @@ import {ChromeBrowser} from '../lib/browser';
 import {TestService} from '../lib/test-injector';
 import {TextInput} from '../lib/elements/text-input';
 import {Button} from '../lib/elements/button';
+import {ConfigService} from '../services/config-service';
 
 @TestService
 export class LinkedIn extends Page {
-  private static pageUrl = 'https://www.linkedin.com';
-
-  constructor(browser: ChromeBrowser) {
+  constructor(browser: ChromeBrowser, private config: ConfigService) {
     super(browser);
-    this.setUrl(LinkedIn.pageUrl);
+    this.setUrl(this.config.get().url);
   }
 
   @findBy('.login-password')

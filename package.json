@@ -1,13 +1,12 @@
 {
-  "name": "awaree2e",
+  "name": "plainmeter",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
     "test": "jest"
   },
   "author": "",
-  "license": "ISC",
+  "license": "Apache 2.0",
   "devDependencies": {},
   "dependencies": {
     "@types/jest": "^23.1.4",

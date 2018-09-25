@@ -1,7 +1,8 @@
-import {elementIsPresent, findBy, Page, TextInput} from '../lib';
-import {Button} from '../lib/element';
+import {elementIsPresent, findBy, Page} from '../lib';
 import {ChromeBrowser} from '../lib/browser';
 import {TestService} from '../lib/test-injector';
+import {TextInput} from '../lib/elements/text-input';
+import {Button} from '../lib/elements/button';
 
 @TestService
 export class LinkedIn extends Page {

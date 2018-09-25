@@ -39,40 +39,5 @@ export class WebElement {
   }
 }
 
-export class Button extends WebElement {
-  constructor(selector: string) {
-    super(selector);
-  }
 
-  public async isDisabled() {
-    try {
-      return await this.element.getAttribute('disabled') === 'disabled';
-    } catch (ex) {
-      return false;
-    }
-  }
-}
 
-export class TextInput extends WebElement {
-  constructor(selector: string) {
-    super(selector);
-  }
-
-  public type(text: string) {
-    return this.element.sendKeys(text);
-  }
-}
-
-export class Image extends WebElement {
-  constructor(selector: string) {
-    super(selector);
-  }
-
-  public async getSourceUrl(): Promise<string> {
-    return this.getAttribute('src');
-  }
-
-  public type(text: string) {
-    return this.element.sendKeys(text);
-  }
-}

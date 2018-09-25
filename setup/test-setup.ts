@@ -1,6 +1,6 @@
-import {TestInjector} from './test-injector';
+import {TestInjector} from '../lib/test-injector';
 import {LinkedIn} from '../pages/linkedin';
-import {ChromeBrowser} from './browser';
+import {ChromeBrowser} from '../lib/browser';
 
 export class TestSetup {
   public static async init() {
